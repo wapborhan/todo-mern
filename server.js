@@ -9,6 +9,8 @@ app.get("/", (req, res) => {
   res.send("Running");
 });
 
+app.post("/name", (req, res) => {});
+
 app.listen(process.env.PORT, () => {
   console.log("App Run");
 });
