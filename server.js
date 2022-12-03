@@ -18,5 +18,5 @@ app.post("/name", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log("App Run");
+  console.log(`App Run ${process.env.PORT}`);
 });
