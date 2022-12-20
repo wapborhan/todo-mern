@@ -16,6 +16,18 @@ router.get("/test", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
+    // check if existing user
+    const existingEmail = await User.findOne({
+      email: new RegExp("^" + req.body.email + "$", "i"),
+    });
+
+    if (existingEmail) {
+      return res
+        .status(400)
+        .json({ error: "There is already a user with this email" });
+    }
+
+    // Password hash
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
     // create new user
     const newUser = new User({
