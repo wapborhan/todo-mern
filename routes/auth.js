@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
     if (existingEmail) {
       return res
         .status(400)
-        .json({ error: "There is already a user with this email" });
+        .json({ error: "There is already a user with this Email" });
     }
 
     // Password hash
